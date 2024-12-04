@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Sorte - PokeTrunfo Store</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="menu-page">
+
+    <header>
+        <img src="/poketrunfologo.webp" alt="Logo da PokeTrunfo Store" class="game-logo">
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="planos.html">Planos</a></li>
+                <li><a href="sobre.html">Sobre a Empresa</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h1>Teste sua Sorte!</h1>
+        <p>Escolha um número entre 1 e 100 e tenha 3 chances para acertar. A cada acerto, você ganha 15% de desconto nos nossos planos. Acerte os três números e 
+            conquiste 45% de desconto exclusivo! Boa sorte!</p>
+        <button id="jogar-btn">Jogar</button>
+
+        <div style="width: 100%; margin-top: 20px;border-bottom: 1px solid #ffffffcc;"></div>
+        
+        <h1>Nossos Planos</h1>
+        <div class="planos-container">
+            <div class="plano-card" id="plano-bronze">
+                <h2>Plano Bronze</h2>
+                <p>Perfeito para quem está começando, com acesso exclusivo ao grupo de jogadores.</p>
+                <ul>
+                    <li>Acesso a 2 jogos de tabuleiro por mês</li>
+                    <li>Acesso ao grupo de Whatsapp da loja</li>
+                </ul>
+                <p style="color: red;">* Os benefícios dos planos são acumulativos.</p>
+                <p><strong class="preco-original">R$ 49,90</strong></p>
+                <button class="assinar-btn" data-plano="Bronze" data-preco="49.90" style="width: 170px">Assinar</button>
+            </div>
+            <div class="plano-card" id="plano-prata">
+                <h2>Plano Prata</h2>
+                <p>Ideal para quem quer expandir a diversão, incluindo experiências digitais.</p>
+                <ul>
+                    <li>Acesso a 4 jogos de tabuleiro por mês</li>
+                    <li>Acesso ao jogo SuperTrunfo (web)</li>
+                </ul>
+                <p style="color: red;">* Os benefícios dos planos são acumulativos.</p>
+                <p><strong class="preco-original">R$ 69,90</strong></p>
+                <button class="assinar-btn" data-plano="Prata" data-preco="69.90" style="width: 170px">Assinar</button>
+            </div>
+            <div class="plano-card" id="plano-ouro">
+                <h2>Plano Ouro</h2>
+                <p>A escolha definitiva para entusiastas, com vantagens premium e descontos exclusivos.</p>
+                <ul>
+                    <li>Acesso a 6 jogos de tabuleiro por mês</li>
+                    <li>Desconto em novos lançamentos</li>
+                </ul>
+                <p style="color: red;">* Os benefícios dos planos são acumulativos.</p>
+                <p><strong class="preco-original">R$ 99,90</strong></p>
+                <button class="assinar-btn" data-plano="Ouro" data-preco="99.90" style="width: 170px">Assinar</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Variável para armazenar os preços originais
+        const precosOriginais = [49.90, 69.90, 99.90];
+        // Variável para armazenar os preços atualizados
+        let precosAtualizados = [...precosOriginais]; // spread -> copia o array, porém sem usar o mesmo lugar de memória
+
+        document.getElementById('jogar-btn').addEventListener('click', function () {
+            const numerosSorteados = [13, 39, 78]; // Números fixos sorteados
+            const numerosEscolhidos = []; // Números escolhidos
+            let acertos = 0;
+
+            for (let i = 0; i < 3; i++) {
+                let escolha = parseInt(prompt(`Digite um número entre 1 e 100 (Tentativa ${i + 1} de 3):`));
+                if (escolha >= 1 && escolha <= 100) {
+                    if (numerosEscolhidos.includes(escolha)) {
+                        alert("Número já digitado! Por favor, insira um novo número entre 1 e 100.");
+                        i--; // Permite que o jogador tente novamente
+                    } else if (numerosSorteados.includes(escolha)) {
+                        acertos++;
+                    }
+                    numerosEscolhidos.push(escolha);
+                } else {
+                    alert("Número inválido! Por favor, insira um número entre 1 e 100.");
+                    i--; // Permite que o jogador tente novamente
+                }
+            }
+
+            const desconto = acertos * 15;
+            alert(`Você acertou ${acertos} número(s)! Desconto total: ${desconto}%`);
+
+            // Atualiza os preços na variável `precosAtualizados`
+            precosAtualizados = precosOriginais.map(preco => preco * (1 - desconto / 100));
+
+            // Atualiza os preços na página
+            const planos = document.querySelectorAll('.plano-card .preco-original');
+            planos.forEach((plano, index) => {
+                plano.textContent = `R$ ${precosAtualizados[index].toFixed(2)}`;
+            });
+        });
+
+        // Adiciona evento aos botões de assinatura
+        document.querySelectorAll('.assinar-btn').forEach((btn, index) => {
+            btn.addEventListener('click', function () {
+                const plano = this.dataset.plano;
+                const preco = precosAtualizados[index]; // Usa o preço atualizado
+                window.location.href = `formulario.html?plano=${plano}&preco=${preco.toFixed(2)}`;
+            });
+        });
+    </script>
+
+</body>
+</html>

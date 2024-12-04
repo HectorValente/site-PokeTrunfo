@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - PokeTrunfo Store</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+  
+<body class="menu-page">
+  
+    <header>
+        <img src="/poketrunfologo.webp" alt="Logo da PokeTrunfo Store" class="game-logo">
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="planos.html">Planos</a></li>
+                <li><a href="sobre.html">Sobre a Empresa</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+  
+    <main class="content">
+      <h1>Preencha suas informações:</h1>
+		    <form class="form-contato" action="processar.php" method="POST">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required>
+	
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="telefone">Telefone:</label>
+          <input type="text" id="telefone" name="telefone" required>
+
+          <label for="forma_pagamento">Forma de Pagamento:</label>
+          <select style="width: 422px" id="forma_pagamento" name="forma_pagamento" required>
+            <option value="" selected disabled>Selecione</option>
+            <option value="Credito">Crédito</option>
+            <option value="Debito">Débito</option>
+            <option value="Pix">Pix</option>
+          </select>
+
+          <input type="hidden" id="plano" name="plano">
+          <input type="hidden" id="preco" name="preco">
+
+          <button style="width: 422px" type="submit">Assinar</button>
+        </form>
+    </main>
+
+    <script>
+        // Preencher os campos ocultos com os valores da URL
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('plano').value = params.get('plano');
+        document.getElementById('preco').value = params.get('preco');
+    </script>
+
+</body>
+</html>
