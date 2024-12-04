@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos - PokeTrunfo Store</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="menu-page">
+
+    <header>
+        <img src="/poketrunfologo.webp" alt="Logo da PokeTrunfo Store" class="game-logo">
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="planos.html">Planos</a></li>
+                <li><a href="sobre.html">Sobre a Empresa</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h1>Nossos Planos</h1>
+        <div class="planos-container">
+            <div class="plano-card">
+                <h2>Plano Bronze</h2>
+                <p>Perfeito para quem está começando, com acesso exclusivo ao grupo de jogadores.</p>
+                <ul>
+                    <li>Acesso a 2 jogos de tabuleiro por mês</li>
+                    <li>Acesso ao grupo de Whatsapp da loja</li>
+                </ul>
+                <p style="color: red;">* Os benefícios dos planos são acumulativos.</p>
+                <p><strong>R$ 49,90</strong></p>
+                <button onclick="assinarPlano('Bronze', '49.90')" style="width: 170px">Assinar</button>
+            </div>
+            <div class="plano-card">
+                <h2>Plano Prata</h2>
+                <p>Ideal para quem quer expandir a diversão, incluindo experiências digitais.</p>
+                <ul>
+                    <li>Acesso a 4 jogos de tabuleiro por mês</li>
+                    <li>Acesso ao jogo SuperTrunfo (web)</li>
+                </ul>
+                <p style="color: red;">* Os benefícios dos planos são acumulativos.</p>
+                <p><strong>R$ 69,90</strong></p>
+                <button onclick="assinarPlano('Prata', '69.90')" style="width: 170px">Assinar</button>
+            </div>
+            <div class="plano-card">
+                <h2>Plano Ouro</h2>
+                <p>A escolha definitiva para entusiastas, com vantagens premium e descontos exclusivos.</p>
+                <ul>
+                    <li>Acesso a 6 jogos de tabuleiro por mês</li>
+                    <li>Desconto em novos lançamentos</li>
+                </ul>
+                <p style="color: red;">* Os benefícios dos planos são acumulativos.</p>
+                <p><strong>R$ 99,90</strong></p>
+                <button onclick="assinarPlano('Ouro', '99.90')" style="width: 170px">Assinar</button>
+            </div>
+        </div>
+        <p>Quer descontos? <a href="jogo.html">Teste sua sorte no nosso jogo!</a></p>
+    </main>
+  
+    <script>
+        function assinarPlano(plano, preco) {
+          window.location.href = `formulario.html?plano=${plano}&preco=${preco}`;
+        }  
+    </script>
+
+</body>
+</html>

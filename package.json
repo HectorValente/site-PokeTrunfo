@@ -1,0 +1,16 @@
+{
+  "name": "ProjetoA3-Site-PokeTrunfo",
+  "version": "0.1.0",
+  "description": "Servidor para página (HTML, CSS, JS e PHP) e SQLite para o projeto A3",
+  "main": "server.js",
+  "scripts": {
+    "start": "bash start.sh"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.7"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - PokeTrunfo Store</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="menu-page">
+    <header>
+        <img src="/poketrunfologo.webp" alt="Logo da PokeTrunfo Store" class="game-logo">
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="planos.html">Planos</a></li>
+                <li><a href="sobre.html">Sobre a Empresa</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="content">
+        <h1>Fale Conosco</h1>
+        <form class="form-contato" method="post" onsubmit="showConfirmation(event)">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="telefone" id="telefone" name="telefone" required>
+
+            <label for="assunto">Assunto:</label>
+            <input type="assunto" id="assunto" name="assunto" required>
+            
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+            
+            <button style="width: 422px" type="submit">Enviar</button>
+        </form>
+    </main>
+
+    <script>
+        // Função que exibe o popup ao enviar o formulário
+        function showConfirmation(event) {
+            event.preventDefault(); // Impede o envio imediato do formulário
+
+            // Exibe o popup de confirmação
+            alert("Sua mensagem foi enviada! Por favor, aguarde o nosso retorno.");
+
+            // Após exibir o popup, o formulário pode ser enviado
+            event.currentTarget.submit(); 
+        }
+    </script>
+
+</body>
+</html>

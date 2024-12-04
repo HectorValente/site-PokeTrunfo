@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #FFFFFF;
+    background-color: #222222;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #FFCC00;
+    border: none;
+    color: #222222;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FFD633;
+}
+
+/* Cabeçalho */
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #00001C;
+}
+
+header .game-logo {
+    width: 100px;
+    margin-right: 20px;
+}
+
+nav ul.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul.menu li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+nav ul.menu li a:hover {
+    text-decoration: underline;
+}
+
+/* Corpo */
+
+main {
+    padding: 20px;
+}
+
+.planos-container {
+    display: flex;
+    gap: 20px;
+    justify-content: left;
+    margin-top: 20px;
+}
+
+.plano-card {
+    background-color: #333333;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.plano-card ul, .plano-card li{
+    text-align: left;
+    color: #ffffffcc;
+}
+
+
+/* Formulário de Contato */
+
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    max-width: 400px;
+}
+
+.form-contato label {
+    font-weight: bold;
+}
+
+.form-contato input, .form-contato textarea, .form-contato button, .form-contato select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    background-color: #444444;
+    color: #FFFFFF;
+}
+
+.form-contato button {
+    background-color: #FFCC00;
+    color: #222222;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-contato button:hover {
+    background-color: #FFD633;
+}
