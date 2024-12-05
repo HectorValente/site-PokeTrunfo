@@ -28,10 +28,17 @@
     $stmt->bindParam(':preco', $_POST['preco']);
     $stmt->execute();
 
-    echo "<script>
-            alert('Assinatura registrada com sucesso!');
-            window.location.href = 'index.html';
-          </script>";
+    if ($_POST['plano'] === 'Personalizado') {
+      echo "<script>
+              alert('Solicitação registrada com sucesso!');
+              window.location.href = 'index.html';
+            </script>";
+    } else {
+          echo "<script>
+                  alert('Assinatura registrada com sucesso!');
+                  window.location.href = 'index.html';
+                </script>";
+    }
 
   } catch (Exception $e) {
       // Exibir mensagem de erro
