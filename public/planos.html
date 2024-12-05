@@ -58,6 +58,17 @@
                 <p><strong>R$ 99,90</strong></p>
                 <button onclick="assinarPlano('Ouro', '99.90')" style="width: 170px">Assinar</button>
             </div>
+            <div class="plano-card">
+                <h2>Personalizado</h2>
+                <p>Feito para você! Personalize os benefícios e o valor conforme suas necessidades.</p>
+                <ul>
+                    <li>Você escolhe os benefícios desejados</li>
+                    <li>O preço é negociado com a nossa equipe</li>
+                </ul>
+                <p style="color: red;">* Este plano é totalmente ajustável.</p>
+                <input type="number" id="valor-sugerido" placeholder="Digite o valor desejado" style="width: 160px; padding: 3px;">
+                <button onclick="assinarPlano('Personalizado', document.getElementById('valor-sugerido').value)" style="width: 170px; margin-top: 10px;">Solicitar</button>
+            </div>
         </div>
         <p>Quer descontos? <a href="jogo.html">Teste sua sorte no nosso jogo!</a></p>
     </main>
